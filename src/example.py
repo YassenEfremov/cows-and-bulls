@@ -1,5 +1,4 @@
 from tkinter import *
-from src import server, test_client
 
 root = Tk()
 
