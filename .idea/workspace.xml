@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77fefceb-8691-4037-a165-23835cb65a89" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test_client.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/starter_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/starter_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/starter_script.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +100,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/starter_script.py" />
-      <option name="PARAMETERS" value="-s" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="true" />
       <option name="MODULE_MODE" value="false" />
@@ -155,6 +152,14 @@
       <option name="presentableId" value="Default" />
       <updated>1579606675574</updated>
     </task>
+    <task id="LOCAL-00001" summary="Cleaned up the project and files">
+      <created>1591348831476</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591348831476</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,6 +172,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Cleaned up the project and files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up the project and files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

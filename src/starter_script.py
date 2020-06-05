@@ -35,9 +35,6 @@ class Player:
         return bull, cow
 
 
-n = 4
-
-
 def input_number(player_name):  # Enter original number
     while True:
         try:
@@ -84,7 +81,7 @@ def start_game(player_name, game_socket, is_server):
             guess_result = ast.literal_eval(str(game_socket.recv(1024).decode("utf8")))
 
             print("You have %s bulls and %s cows\n" % guess_result)
-            have_winner = guess_result[0] == n
+            have_winner = guess_result[0] == 4
             if have_winner:
                 print("I won! Game Over!")
                 return
@@ -97,7 +94,7 @@ def start_game(player_name, game_socket, is_server):
             game_socket.sendall(str(guess_result).encode("utf8"))
 
             print("other player has %s bulls and %s cows\n" % guess_result)
-            have_winner = guess_result[0] == n
+            have_winner = guess_result[0] == 4
             if have_winner:
                 print("Other player won! Game Over!")
                 return
@@ -106,6 +103,8 @@ def start_game(player_name, game_socket, is_server):
 
 
 if __name__ == "__main__":
+
+    # Check parameters
 
     try:
         opts, args = getopt.getopt(sys.argv[1:], "s", ["host=", "port=", "name="])
@@ -126,16 +125,18 @@ if __name__ == "__main__":
         if opt == "--name":
             PLAYER_NAME = arg
 
+    # Get host info + IPs
+
     host_name = socket.gethostname()  # Alone seen as localhost
     host = socket.gethostbyname(host_name + ".local")
     port = 5555
 
     devices = get_lan_ips()
-    print(devices)
-
-    print("Game process is server: %s;  Host: %s;  Port: %s" % (str(IS_SERVER), host, port))
+    print(devices, host)
 
     # Create sockets
+
+    print("Game process is server: %s;  Host: %s;  Port: %s" % (str(IS_SERVER), host, port))
 
     if IS_SERVER:
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -149,9 +150,11 @@ if __name__ == "__main__":
         print("Connecting to game server...")
         for IP in devices:
             try:
-                conn_socket.connect(("192.168.2.57", port))
+                conn_socket.connect((IP, port))
             except ConnectionRefusedError:
-                pass
+                devices.remove(IP)
+
+        print(devices)
         print("Connected to %s\n" % IP)
 
     # Start the game
