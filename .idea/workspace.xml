@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77fefceb-8691-4037-a165-23835cb65a89" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/example.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/starter_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/func_dir/start_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/func_dir/start_game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591352093348</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Changed file names">
+      <created>1591352495342</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1591352495342</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,7 +197,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cleaned up the project and files" />
     <MESSAGE value="Separated the main script into files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Separated the main script into files" />
+    <MESSAGE value="Changed file names" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed file names" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

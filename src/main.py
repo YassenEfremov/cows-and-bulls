@@ -1,10 +1,6 @@
 import socket
-import getpass
-import os
 import sys
 import getopt
-import ast
-import re
 import random
 
 from src.func_dir.get_lan_ips import *
@@ -17,6 +13,7 @@ if __name__ == "__main__":
 
     try:
         opts, args = getopt.getopt(sys.argv[1:], "s", ["host=", "port=", "name="])
+
     except getopt.GetoptError:
         print(__file__ + " [-s] [--host HOST_NAME] [--port PORT_NUMBER] [--name PLAYER_NAME]")
         sys.exit(2)
@@ -27,10 +24,13 @@ if __name__ == "__main__":
     for opt, arg in opts:
         if opt == "-s":
             IS_SERVER = True
+
         if opt == "--host":
             host = arg
+
         if opt == "--port":
             port = int(arg)
+            
         if opt == "--name":
             PLAYER_NAME = arg
 
@@ -52,8 +52,10 @@ if __name__ == "__main__":
         server_socket.bind((host, port))
         server_socket.listen()
         print("Waiting for other opponent to join...")
+
         conn_socket, addr = server_socket.accept()
         print("Opponent connected from %s\n" % addr)
+
     else:
         conn_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         print("Connecting to game server...")

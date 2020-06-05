@@ -19,6 +19,7 @@ class Player:
         for i in range(0, 4):
             if num_as_str[i] == guess_as_str[i]:
                 bull += 1
+
         for i in num_as_str:
             if i in guess_as_str:
                 all_bulls_cows += 1
@@ -36,6 +37,7 @@ def input_number(player_name):  # Enter original number
                 print("The number length is too short or too long, try again")
                 num = int(getpass.getpass(player_name + "'s number: "))
             return num
+
         except ValueError:
             print("Type a number, not letters")
 
@@ -48,6 +50,7 @@ def make_a_guess(player_name):  # Enter a guess
                 print("The number length is too short or too long, try again")
                 guess = int(input(player_name + ", enter your guess: "))
             return guess
+
         except ValueError:
             print("Type a number, not letters")
 
@@ -75,11 +78,13 @@ def start_game(player_name, game_socket, is_server):
 
             print("You have %s bulls and %s cows\n" % guess_result)
             have_winner = guess_result[0] == 4
+
             if have_winner:
                 print("I won! Game Over!")
                 return
 
             is_my_turn = not is_my_turn
+
         else:
             other_player_guess = int(game_socket.recv(1024).decode("utf8"))
             guess_result = my_player.guess(other_player_guess)
@@ -88,9 +93,9 @@ def start_game(player_name, game_socket, is_server):
 
             print("other player has %s bulls and %s cows\n" % guess_result)
             have_winner = guess_result[0] == 4
+
             if have_winner:
                 print("Other player won! Game Over!")
                 return
 
             is_my_turn = not is_my_turn
-
