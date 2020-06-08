@@ -1,13 +1,20 @@
 import socket
-import sys
-import getopt
 import random
-from tkinter import *
 import threading
 
-from src.func_dir.get_lan_ips import *
-from src.func_dir.start_game import *
+from func_dir.get_lan_ips import *
+from func_dir.start_game import *
 
+
+# Check parameters
+'''
+try:
+    opts, args = getopt.getopt(sys.argv[1:], "s", ["host=", "port=", "name="])
+
+except getopt.GetoptError:
+    print(__file__ + " [-s] [--host HOST_NAME] [--port PORT_NUMBER] [--name PLAYER_NAME]")
+    sys.exit(2)
+'''
 
 PLAYER_NAME = "Player" + str(random.randint(1, 100))    # These will be changed in the future
 IS_SERVER = True                                        #
