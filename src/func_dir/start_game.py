@@ -55,7 +55,7 @@ def make_a_guess(player_name):  # Enter a guess
             print("Type a number, not letters")
 
 
-def start_game(player_name, game_socket, is_server):
+def start_game(player_name, game_socket):
     print("Game begins!\n")
 
     # Take both players numbers
@@ -68,7 +68,7 @@ def start_game(player_name, game_socket, is_server):
 
     # Take guesses
 
-    is_my_turn = is_server
+    is_my_turn = True
 
     while True:
         if is_my_turn:

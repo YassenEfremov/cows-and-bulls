@@ -4,12 +4,15 @@ import platform
 
 
 def get_lan_ips():
+    """
+    Executes "arp -a" in terminal and gets the LAN IPs (uses different methods based on the OS)
+    """
 
     # Check operating system
 
     op_sys = platform.system()
 
-    # Find IP's of all machines on local network
+    # Place all the LAN IPs in a list
 
     devices = []
 
@@ -18,12 +21,12 @@ def get_lan_ips():
             IP_RAW = re.split("\s", device)[1]
             IP = re.sub("[()]", "", IP_RAW)
             devices.append(IP)
+
     elif op_sys == "Windows":
         for device in os.popen("arp -a"):
             try:
                 IP_RAW = re.split("\s", device)[2]
                 devices.append(IP_RAW)
-                print(IP_RAW)
             except IndexError:
                 pass
 

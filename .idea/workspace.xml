@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77fefceb-8691-4037-a165-23835cb65a89" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/cows_and_bulls.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cows_and_bulls.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/func_dir/get_lan_ips.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/func_dir/get_lan_ips.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/func_dir/lobby_controls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/func_dir/lobby_controls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/func_dir/start_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/func_dir/start_game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -166,7 +166,21 @@
       <option name="project" value="LOCAL" />
       <updated>1591374114024</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Removed unused libraries and organized imports">
+      <created>1591629486335</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1591629486335</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Removed example.py file">
+      <created>1591629557876</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1591629557876</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,6 +202,8 @@
     <MESSAGE value="Changed file names" />
     <MESSAGE value="Removed unused libraries and improved readability" />
     <MESSAGE value="Added GUI support (early)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added GUI support (early)" />
+    <MESSAGE value="Removed unused libraries and organized imports" />
+    <MESSAGE value="Removed example.py file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed example.py file" />
   </component>
 </project>
