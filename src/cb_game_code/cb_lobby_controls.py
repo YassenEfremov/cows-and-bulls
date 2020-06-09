@@ -70,7 +70,6 @@ def create_lobby_thread():
         server_socket.close()
 
     else:
-        # conn_socket.sendall(b"response")
         print("Opponent connected from ", addr)
         start_game(PLAYER_NAME, conn_socket)
 
@@ -95,6 +94,7 @@ def connect_lobby(connect_ip):
         conn_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         conn_socket.connect((str(connect_ip), port))
         print("Connected to %s\n" % connect_ip)
+        start_game(PLAYER_NAME, conn_socket)
 
     except ConnectionRefusedError:
         print("The Game doesn't exist!")
