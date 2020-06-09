@@ -14,11 +14,16 @@ if __name__ == "__main__":
 
     # Lobby Buttons
 
-    start = Button(root, text="Start Game", command=lobby_controls.create_lobby)
-    start.pack(side=TOP)
+    def start():
+        lobby_controls.create_lobby()
+        start_stop.configure(text="Cancel Game", command=stop)
 
-    stop = Button(root, text="Cancel", command=lobby_controls.close_lobby)
-    stop.pack(side=TOP)
+    def stop():
+        lobby_controls.close_lobby()
+        start_stop.configure(text="Start Game", command=start)
+
+    start_stop = Button(root, text="Start Game", command=start)
+    start_stop.pack(side=TOP)
 
     conn_ip = Entry(root)
     conn_ip.pack(side=TOP)

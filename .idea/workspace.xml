@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="77fefceb-8691-4037-a165-23835cb65a89" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/func_dir/lobby_controls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/func_dir/lobby_controls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -185,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591640946481</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Changed the &quot;Connect to closest lobby&quot; option to now require an IP address">
+      <created>1591706281365</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1591706281365</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,6 +216,7 @@
     <MESSAGE value="Removed unused libraries and organized imports" />
     <MESSAGE value="Removed example.py file" />
     <MESSAGE value="Improved readability and added &quot;Connect to lobby&quot; button (WIP)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved readability and added &quot;Connect to lobby&quot; button (WIP)" />
+    <MESSAGE value="Changed the &quot;Connect to closest lobby&quot; option to now require an IP address" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the &quot;Connect to closest lobby&quot; option to now require an IP address" />
   </component>
 </project>
