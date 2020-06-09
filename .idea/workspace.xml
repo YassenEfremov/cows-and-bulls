@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="77fefceb-8691-4037-a165-23835cb65a89" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/func_dir/get_lan_ips.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/func_dir/get_lan_ips.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/func_dir/lobby_controls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/func_dir/lobby_controls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/func_dir/start_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/func_dir/start_game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -180,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591629557876</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Improved readability and added &quot;Connect to lobby&quot; button (WIP)">
+      <created>1591640946481</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1591640946481</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,6 +209,7 @@
     <MESSAGE value="Added GUI support (early)" />
     <MESSAGE value="Removed unused libraries and organized imports" />
     <MESSAGE value="Removed example.py file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed example.py file" />
+    <MESSAGE value="Improved readability and added &quot;Connect to lobby&quot; button (WIP)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved readability and added &quot;Connect to lobby&quot; button (WIP)" />
   </component>
 </project>

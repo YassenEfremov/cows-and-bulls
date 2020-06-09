@@ -70,7 +70,7 @@ def create_lobby_thread():
         server_socket.close()
 
     else:
-        conn_socket.sendall(b"response")
+        # conn_socket.sendall(b"response")
         print("Opponent connected from ", addr)
         start_game(PLAYER_NAME, conn_socket)
 
@@ -84,13 +84,22 @@ def create_lobby():
     lobby.start()
 
 
-def connect_lobby():
+def connect_lobby(connect_ip):
     """
     Creates a client SO which connects to an available server SO on the LAN via its IP address and port.
+
+    Currently just accepts an IP address to connect to instead of looking for available IPs on the LAN.
     """
 
-    # conn_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # conn_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    try:
+        conn_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        conn_socket.connect((str(connect_ip), port))
+        print("Connected to %s\n" % connect_ip)
+
+    except ConnectionRefusedError:
+        print("The Game doesn't exist!")
+
+    '''
     print("Connecting to game server...")
     for IP in devices:
         try:
@@ -111,6 +120,7 @@ def connect_lobby():
     else:
         print(devices)  # to test
         print("Connected to %s\n" % IP)
+    '''
 
 
 def close_lobby():
@@ -120,6 +130,7 @@ def close_lobby():
 
     term_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     term_client.connect((host, port))
+
 '''
 # Start the game
 
