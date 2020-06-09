@@ -1,6 +1,6 @@
 from tkinter import *
 
-import func_dir.lobby_controls as lobby_controls
+import cb_game_code.cb_lobby_controls as lobby_controls
 
 
 if __name__ == "__main__":

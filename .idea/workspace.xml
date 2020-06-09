@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="77fefceb-8691-4037-a165-23835cb65a89" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/func_dir/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cb_game_code/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/func_dir/get_lan_ips.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cb_game_code/get_lan_ips.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/func_dir/lobby_controls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cb_game_code/cb_lobby_controls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/func_dir/start_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cb_game_code/cb_game_logic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -191,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591706281365</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Changed the &quot;Start Game&quot; button to alter between &quot;Start Game&quot; and &quot;Cancel Game&quot; when pressed">
+      <created>1591719397830</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1591719397830</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -217,6 +228,7 @@
     <MESSAGE value="Removed example.py file" />
     <MESSAGE value="Improved readability and added &quot;Connect to lobby&quot; button (WIP)" />
     <MESSAGE value="Changed the &quot;Connect to closest lobby&quot; option to now require an IP address" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the &quot;Connect to closest lobby&quot; option to now require an IP address" />
+    <MESSAGE value="Changed the &quot;Start Game&quot; button to alter between &quot;Start Game&quot; and &quot;Cancel Game&quot; when pressed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the &quot;Start Game&quot; button to alter between &quot;Start Game&quot; and &quot;Cancel Game&quot; when pressed" />
   </component>
 </project>

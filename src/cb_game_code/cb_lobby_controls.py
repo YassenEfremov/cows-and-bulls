@@ -2,8 +2,8 @@ import socket
 import random
 import threading
 
-from func_dir.get_lan_ips import *
-from func_dir.start_game import *
+from cb_game_code.get_lan_ips import *
+from cb_game_code.cb_game_logic import *
 
 
 """
@@ -130,13 +130,3 @@ def close_lobby():
 
     term_client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     term_client.connect((host, port))
-
-'''
-# Start the game
-
-try:
-    start_game(PLAYER_NAME, conn_socket, IS_SERVER)
-
-finally:
-    conn_socket.close()
-'''

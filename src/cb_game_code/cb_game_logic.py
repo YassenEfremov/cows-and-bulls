@@ -29,20 +29,20 @@ class Player:
         return bull, cow
 
 
-def input_number(player_name):  # Enter original number
+def choose_number(player_name):  # Enter original number
     while True:
         try:
-            num = int(getpass.getpass(player_name + "'s number: "))
+            num = int(input(player_name + "'s number: "))
             while len(str(num)) != 4:
                 print("The number length is too short or too long, try again")
-                num = int(getpass.getpass(player_name + "'s number: "))
+                num = int(input(player_name + "'s number: "))
             return num
 
         except ValueError:
             print("Type a number, not letters")
 
 
-def make_a_guess(player_name):  # Enter a guess
+def take_a_guess(player_name):  # Enter a guess
     while True:
         try:
             guess = int(input(player_name + ", enter your guess: "))
@@ -60,19 +60,19 @@ def start_game(player_name, game_socket):
 
     # Take both players numbers
 
-    my_number = input_number(player_name)
+    my_number = choose_number(player_name)
 
     # Initialize the player
 
     my_player = Player(player_name, my_number)
 
-    # Take guesses
+    # Start guessing
 
-    is_my_turn = True
+    server_turn = True  # Will be changed to be more fair, e.g. a dice?
 
     while True:
-        if is_my_turn:
-            guess = make_a_guess(player_name)
+        if server_turn:
+            guess = take_a_guess(player_name)
             game_socket.sendall(str(guess).encode("utf8"))
             guess_result = ast.literal_eval(str(game_socket.recv(1024).decode("utf8")))
 
@@ -83,7 +83,7 @@ def start_game(player_name, game_socket):
                 print("I won! Game Over!")
                 return
 
-            is_my_turn = not is_my_turn
+            server_turn = not server_turn
 
         else:
             other_player_guess = int(game_socket.recv(1024).decode("utf8"))
@@ -98,4 +98,4 @@ def start_game(player_name, game_socket):
                 print("Other player won! Game Over!")
                 return
 
-            is_my_turn = not is_my_turn
+            server_turn = not server_turn
