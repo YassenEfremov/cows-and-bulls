@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77fefceb-8691-4037-a165-23835cb65a89" name="Default Changelist" comment="">
+    <list default="true" id="77fefceb-8691-4037-a165-23835cb65a89" name="Default Changelist" comment="Organized code and redesigned main menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cb_game_code/cb_game_logic.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cb_game_code/cb_game_logic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cb_game_code/cb_lobby_controls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cb_game_code/cb_lobby_controls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -212,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1591728307294</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Organized code and redesigned main menu">
+      <created>1591784410478</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1591784410478</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,6 +250,7 @@
     <MESSAGE value="Changed the &quot;Start Game&quot; button to alter between &quot;Start Game&quot; and &quot;Cancel Game&quot; when pressed" />
     <MESSAGE value="Changed some file and directory names" />
     <MESSAGE value="Split the main GUI into frames and ordered the widgets (colors are temporary)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Split the main GUI into frames and ordered the widgets (colors are temporary)" />
+    <MESSAGE value="Organized code and redesigned main menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Organized code and redesigned main menu" />
   </component>
 </project>

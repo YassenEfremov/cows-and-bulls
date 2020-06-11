@@ -1,6 +1,6 @@
 import socket
-import random
 import threading
+import queue
 
 from cb_game_code.get_lan_ips import *
 from cb_game_code.cb_game_logic import *
@@ -13,11 +13,11 @@ from cb_game_code.cb_game_logic import *
 | SO - socket object            |
 +-------------------------------+
 """
-
+'''
 # Game parameters
 
 PLAYER_NAME = "Player" + str(random.randint(1, 100))
-'''
+
 # Check parameters
 
 try:
@@ -52,10 +52,12 @@ print("LAN devices: ", devices)
 
 #   Main lobby functions   #
 
-def create_lobby_thread():
+def create_lobby_thread(player_name):
     """
     Creates a server SO which is bound to the host's IP address (+ a custom port) and awaits connections.
     """
+
+    _game_state = None
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -66,38 +68,46 @@ def create_lobby_thread():
     conn_socket, addr = server_socket.accept()
 
     if addr[0] == host:
+        _game_state = "closed"
         print("Server closed")
         server_socket.close()
+        return _game_state
 
     else:
+        _game_state = "started"
         print("Opponent connected from ", addr)
-        start_game(PLAYER_NAME, conn_socket)
+        start_game(player_name, conn_socket)
+        return _game_state
 
 
-def create_lobby():
+def create_lobby(player_name):
     """
     Calls the above function in a separate thread to avoid halt.
     """
 
-    lobby = threading.Thread(target=create_lobby_thread, args=())
+    lobby = threading.Thread(target=create_lobby_thread, args=[player_name])
     lobby.start()
 
 
-def connect_lobby(connect_ip):
+def connect_lobby_thread(IP, state):
     """
     Creates a client SO which connects to an available server SO on the LAN via its IP address and port.
 
     Currently just accepts an IP address to connect to instead of looking for available IPs on the LAN.
     """
 
+    _conn_state = None
+
     try:
         conn_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        conn_socket.connect((str(connect_ip), port))
-        print("Connected to %s\n" % connect_ip)
-        start_game(PLAYER_NAME, conn_socket)
+        conn_socket.connect((IP, port))
+        print("Connected to %s\n" % IP)
+        start_game(host_name, conn_socket)
 
     except ConnectionRefusedError:
+        _conn_state = "invalid"
         print("The Game doesn't exist!")
+        state.put(_conn_state)
 
     '''
     print("Connecting to game server...")
@@ -121,6 +131,18 @@ def connect_lobby(connect_ip):
         print(devices)  # to test
         print("Connected to %s\n" % IP)
     '''
+
+
+def connect_lobby(IP):
+    """
+    Calls the above function in a separate thread to avoid halt.
+    """
+
+    _state = queue.Queue()
+
+    connect = threading.Thread(target=connect_lobby_thread, args=[IP, _state])
+    connect.start()
+    return _state.get()
 
 
 def close_lobby():
