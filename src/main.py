@@ -52,8 +52,6 @@ if __name__ == "__main__":
     entry_player_name = Entry(top, width=10, font=font_name)
     entry_player_name.place(relx=0.5, rely=0.5, y=25, anchor=CENTER)
 
-    PLAYER_NAME = entry_player_name.get()
-
     # => AFTER BEGINNING OF GAME <= #
 
     label_start = Label(top, text="Game Begins!", font=font_name)
@@ -63,26 +61,36 @@ if __name__ == "__main__":
     entry_number = Entry(top, width=4, font=font_name)
 
 # Left Frame --------------------------------------------------------------------------------------------------------- #
+    """
+    This frame is used for the client user
+    """
+
+    def server_start_game_ui(PLAYER_NAME):
+        label_name.place_forget()
+        entry_player_name.place_forget()
+        label_waiting_game.place_forget()
+        button_create_game.place_forget()
+        entry_conn_ip.place_forget()
+        button_connect_game.place_forget()
+
+        label_player_name = Label(left, text=PLAYER_NAME, font=font_button)
+        label_player_name.place(relx=0.5, y=10, anchor=N)
+
+        label_start.place(relx=0.5, rely=0.5, y=-25, anchor=CENTER)
+        label_number.place(relx=0.5, rely=0.5, x=-50, y=25, anchor=CENTER)
+        entry_number.place(relx=0.5, rely=0.5, x=50, y=25, anchor=CENTER)
+        label_guess.place(relx=0.5, y=10, x=-50, anchor=N)
+        entry_guess.place(relx=0.5, y=10, x=50, anchor=N)
+
 
     def start():
+        PLAYER_NAME = entry_player_name.get()
+
         label_waiting_game.place(relx=0.5, y=50, anchor=N)
-        lobby_controls.create_lobby(PLAYER_NAME)
         button_create_game.configure(text="Cancel Game", command=stop)
 
-        if lobby_controls.create_lobby == "started":
-            label_name.place_forget()
-            entry_player_name.place_forget()
-            label_waiting_game.place_forget()
-            button_create_game.place_forget()
-            entry_conn_ip.place_forget()
-            button_connect_game.place_forget()
-
-            label_start.place(relx=0.5, rely=0.5, y=-25, anchor=CENTER)
-            label_number.place(relx=0.5, rely=0.5, x=-50, y=25, anchor=CENTER)
-            entry_number.place(relx=0.5, rely=0.5, x=50, y=25, anchor=CENTER)
-            label_player_name.place(relx=0.5, y=10, anchor=N)
-            label_guess.place(relx=0.5, y=10, x=-50, anchor=N)
-            entry_guess.place(relx=0.5, y=10, x=50, anchor=N)
+        if lobby_controls.create_lobby(PLAYER_NAME) == "started":
+            server_start_game_ui(PLAYER_NAME)
 
 
     def stop():
@@ -98,25 +106,31 @@ if __name__ == "__main__":
 
     # => AFTER BEGINNING OF GAME <= #
 
-    label_player_name = Label(left, text=PLAYER_NAME, font=font_button)
-
     label_guess = Label(left, text="Your Guess:", font=font_button)
 
     entry_guess = Entry(left, width=4, font=font_button)
 
 # Right Frame -------------------------------------------------------------------------------------------------------- #
+    """
+    This frame is used for the server user
+    """
+
+    def client_start_game_ui(PLAYER_NAME):
+        label_player_name = Label(left, text=PLAYER_NAME, font=font_button)
+        label_player_name.place(relx=0.5, y=10, anchor=N)
+        entry_player_name.place_forget()
 
     def connect():
         # label_waiting_conn.place(relx=0.5, y=50, anchor=N)
         IP = entry_conn_ip.get()
+        PLAYER_NAME = entry_player_name.get()
 
         if lobby_controls.connect_lobby(IP) == "invalid":
             label_invalid_game.place(relx=0.5, y=50, anchor=N)
             label_invalid_game.after(2000, label_invalid_game.place_forget)
 
         else:
-            label_player_name.place_forget()
-            entry_player_name.place_forget()
+            client_start_game_ui(PLAYER_NAME)
 
 
     entry_conn_ip = Entry(right, width=14, font=font_button)

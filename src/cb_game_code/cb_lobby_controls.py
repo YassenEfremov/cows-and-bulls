@@ -102,7 +102,7 @@ def connect_lobby_thread(IP, state):
     try:
         _conn_state = "connected"
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        client_socket.connect((str(IP), port))
+        client_socket.connect((IP, port))
         print("Connected to %s\n" % IP)
         start_game(host_name, client_socket, "client")
         state.put(_conn_state)
