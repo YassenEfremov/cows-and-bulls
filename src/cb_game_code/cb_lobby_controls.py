@@ -43,7 +43,8 @@ for opt, arg in opts:
 #   Get host info and LAN IPs   #
 
 host_name = socket.gethostname()  # Alone seen as localhost
-host = socket.gethostbyname(host_name + ".local")
+host = "127.0.0.1"
+# socket.gethostbyname(host_name + ".local")
 port = 5555
 
 devices = get_lan_ips()
@@ -76,7 +77,7 @@ def create_lobby_thread(player_name):
     else:
         _game_state = "started"
         print("Opponent connected from ", addr)
-        start_game(player_name, conn_socket)
+        start_game(player_name, conn_socket, "server")
         return _game_state
 
 
@@ -99,14 +100,17 @@ def connect_lobby_thread(IP, state):
     _conn_state = None
 
     try:
-        conn_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        conn_socket.connect((IP, port))
+        _conn_state = "connected"
+        client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        client_socket.connect((str(IP), port))
         print("Connected to %s\n" % IP)
-        start_game(host_name, conn_socket)
+        start_game(host_name, client_socket, "client")
+        state.put(_conn_state)
 
-    except ConnectionRefusedError:
+    except (ConnectionRefusedError, OSError) as e:
         _conn_state = "invalid"
         print("The Game doesn't exist!")
+        print(e)
         state.put(_conn_state)
 
     '''
