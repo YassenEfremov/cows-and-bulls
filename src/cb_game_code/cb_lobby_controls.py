@@ -43,7 +43,7 @@ for opt, arg in opts:
 #   Get host info and LAN IPs   #
 
 host_name = socket.gethostname()  # Alone seen as localhost
-host = "127.0.0.1"
+host = "0.0.0.0"
 # socket.gethostbyname(host_name + ".local")
 port = 5555
 
@@ -107,7 +107,7 @@ def connect_lobby_thread(IP, state):
         start_game(host_name, client_socket, "client")
         state.put(_conn_state)
 
-    except (ConnectionRefusedError, OSError) as e:
+    except (ConnectionRefusedError) as e:
         _conn_state = "invalid"
         print("The Game doesn't exist!")
         print(e)

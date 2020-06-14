@@ -2,7 +2,9 @@ from tkinter import *
 import tkinter.font as tkFont
 
 import cb_game_code.cb_lobby_controls as lobby_controls
+#import cb_game_code.test as test
 
+#test.t()
 
 if __name__ == "__main__":
     """
@@ -87,9 +89,10 @@ if __name__ == "__main__":
         PLAYER_NAME = entry_player_name.get()
 
         label_waiting_game.place(relx=0.5, y=50, anchor=N)
+        lobby_controls.create_lobby(PLAYER_NAME)
         button_create_game.configure(text="Cancel Game", command=stop)
 
-        if lobby_controls.create_lobby(PLAYER_NAME) == "started":
+        if lobby_controls.create_lobby == "started":
             server_start_game_ui(PLAYER_NAME)
 
 
