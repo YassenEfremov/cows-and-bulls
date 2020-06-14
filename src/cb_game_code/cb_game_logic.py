@@ -25,7 +25,7 @@ class Player:
 
         cow = all_bulls_cows - bull
 
-        return bull, cow
+        return (bull, cow)
 
 
 def choose_number(player_name):  # Enter original number
@@ -82,9 +82,11 @@ def start_game(player_name, game_socket, host):
 
     # => START GUESSING <= #
 
-    #if host == "server":
+    if host == "server":
+        server_turn = True  # Will be changed to be more fair, e.g. a dice?
+    else:
+        server_turn = False  # Will be changed to be more fair, e.g. a dice?
 
-    server_turn = True  # Will be changed to be more fair, e.g. a dice?
 
     while True:
 
@@ -92,6 +94,7 @@ def start_game(player_name, game_socket, host):
             guess = take_a_guess(player_name)
             game_socket.sendall(str(guess).encode("utf8"))
             guess_result = ast.literal_eval(str(game_socket.recv(1024).decode("utf8")))
+            print(guess_result)
 
             print("You have {b} bulls and {c} cows\n".format(b = guess_result[0], c = guess_result[1]))
             have_winner = guess_result[0] == 4
@@ -103,6 +106,7 @@ def start_game(player_name, game_socket, host):
             server_turn = not server_turn
 
         else:
+            print("Please wait for opponent to take a guess...")
             opponent_guess = int(game_socket.recv(1024).decode("utf8"))
             guess_result = my_player.guess(opponent_guess)
 
