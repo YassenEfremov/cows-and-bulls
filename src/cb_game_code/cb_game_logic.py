@@ -93,7 +93,7 @@ def start_game(player_name, game_socket, host):
             game_socket.sendall(str(guess).encode("utf8"))
             guess_result = ast.literal_eval(str(game_socket.recv(1024).decode("utf8")))
 
-            print("You have %s bulls and %s cows\n" % guess_result)
+            print("You have {b} bulls and {c} cows\n".format(b = guess_result[0], c = guess_result[1]))
             have_winner = guess_result[0] == 4
 
             if have_winner:
@@ -108,7 +108,7 @@ def start_game(player_name, game_socket, host):
 
             game_socket.sendall(str(guess_result).encode("utf8"))
 
-            print("Other player has %s bulls and %s cows\n" % guess_result)
+            print("Other player has {b} bulls and {c} cows\n".format(b = guess_result[0], c = guess_result[1]))
             have_winner = guess_result[0] == 4
 
             if have_winner:

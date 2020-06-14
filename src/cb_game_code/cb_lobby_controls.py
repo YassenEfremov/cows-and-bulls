@@ -43,8 +43,7 @@ for opt, arg in opts:
 #   Get host info and LAN IPs   #
 
 host_name = socket.gethostname()  # Alone seen as localhost
-host = "0.0.0.0"
-# socket.gethostbyname(host_name + ".local")
+host = socket.gethostbyname(host_name + ".local")   # Broken on Windows 7!
 port = 5555
 
 devices = get_lan_ips()
@@ -103,7 +102,7 @@ def connect_lobby_thread(IP, state):
         _conn_state = "connected"
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client_socket.connect((IP, port))
-        print("Connected to %s\n" % IP)
+        print("Connected to {ip}s\n".format(ip = IP))
         start_game(host_name, client_socket, "client")
         state.put(_conn_state)
 
