@@ -52,7 +52,7 @@ print("LAN devices: ", devices)
 
 #   Main lobby functions   #
 
-def create_lobby_thread(player_name):
+def create_lobby_thread(player_name, state):
     """
     Creates a server SO which is bound to the host's IP address (+ a custom port) and awaits connections.
     """
@@ -71,13 +71,13 @@ def create_lobby_thread(player_name):
         _game_state = "closed"
         print("Server closed")
         server_socket.close()
-        return _game_state
+        state.put(_game_state)
 
     else:
         _game_state = "started"
         print("Opponent connected from ", addr)
         start_game(player_name, conn_socket, "server")
-        return _game_state
+        state.put(_game_state)
 
 
 def create_lobby(player_name):
@@ -85,8 +85,11 @@ def create_lobby(player_name):
     Calls the above function in a separate thread to avoid halt.
     """
 
-    lobby = threading.Thread(target=create_lobby_thread, args=[player_name])
+    _state = queue.Queue()
+
+    lobby = threading.Thread(target=create_lobby_thread, args=[player_name, _state])
     lobby.start()
+    return _state.get()
 
 
 def connect_lobby_thread(IP, state):
@@ -102,7 +105,7 @@ def connect_lobby_thread(IP, state):
         _conn_state = "connected"
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client_socket.connect((IP, port))
-        print("Connected to {ip}s\n".format(ip = IP))
+        print("Connected to {ip}\n".format(ip = IP))
         start_game(host_name, client_socket, "client")
         state.put(_conn_state)
 
